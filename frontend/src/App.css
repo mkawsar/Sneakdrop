@@ -1,0 +1,199 @@
+.app {
+  min-height: 100vh;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.btn-signout {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-signout:hover {
+  color: inherit;
+  border-color: var(--muted);
+}
+
+.username-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+}
+
+.username-prompt h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.username-prompt form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.username-prompt input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.username-prompt button {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.username-prompt button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.username-prompt .error {
+  color: var(--error);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  color: var(--muted);
+}
+
+.dashboard h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.drop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.drop-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--card-bg);
+}
+
+.drop-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.drop-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.drop-card .price {
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.stock-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stock-row .label,
+.latest-purchasers .label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.stock-count {
+  font-weight: 700;
+  font-size: 1.1rem;
+  min-width: 2ch;
+}
+
+.latest-purchasers {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.latest-purchasers ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.btn-reserve {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-reserve:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-purchase {
+  background: #0a7c42;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-purchase:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.drop-card .hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.error {
+  color: var(--error);
+}

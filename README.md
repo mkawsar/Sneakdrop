@@ -1,4 +1,4 @@
-# Sneakdrop — Limited Edition Sneaker Drop
+# `Sneakdrop` — Limited Edition Sneaker Drop
 
 Real-time high-traffic inventory system: reserve items for 60 seconds, then complete purchase. Stock updates sync across all clients via WebSockets. No overselling under concurrent requests.
 
