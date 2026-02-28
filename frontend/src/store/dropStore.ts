@@ -11,7 +11,7 @@ interface DropState {
   addLatestPurchaser: (dropId: number, purchaser: { id: number; username: string }) => void
 }
 
-export const useDropStore = create<DropState>((set, get) => ({
+export const useDropStore = create<DropState>((set) => ({
   drops: [],
   loading: false,
   error: null,

@@ -12,7 +12,7 @@ interface ReservationState {
   setReservation: (r: Reservation | null) => void
 }
 
-export const useReservationStore = create<ReservationState>((set, get) => ({
+export const useReservationStore = create<ReservationState>((set) => ({
   reservation: null,
   reserving: false,
   purchasing: false,

@@ -9,7 +9,7 @@ interface UserState {
   getOrCreateUser: (username: string) => Promise<User>
 }
 
-export const useUserStore = create<UserState>((set, get) => ({
+export const useUserStore = create<UserState>((set) => ({
   user: null,
   loading: false,
 
