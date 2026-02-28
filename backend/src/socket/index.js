@@ -4,9 +4,18 @@ import { startReservationExpiryJob, setSocketIo } from '../jobs/reservationExpir
 let ioInstance = null;
 
 export function attachSocket(server) {
+  const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim()).filter(Boolean)
+    : null;
+
   const io = new Server(server, {
-    cors: { origin: true },
-    transports: ['websocket', 'polling'],
+    cors: {
+      origin: allowedOrigins && allowedOrigins.length > 0 ? allowedOrigins : true,
+      methods: ['GET', 'POST'],
+    },
+    transports: ['polling', 'websocket'],
+    pingTimeout: 20000,
+    pingInterval: 10000,
   });
 
   ioInstance = io;

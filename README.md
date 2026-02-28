@@ -72,10 +72,10 @@ npm test
 
 ### 5. Deployment (Vercel + Render)
 
-- **Backend (Render):** Deploy the `backend` folder, set `DATABASE_URL` and other env vars in Render. Your API will be at e.g. `https://your-app.onrender.com`.
+- **Backend (Render):** Deploy the `backend` folder, set `DATABASE_URL` and other env vars in Render. Your API will be at e.g. `https://your-app.onrender.com`. Optional: set **`CORS_ORIGIN`** to your Vercel URL (e.g. `https://your-app.vercel.app`) for stricter Socket.io CORS; if unset, all origins are allowed.
 - **Frontend (Vercel):** Deploy the `frontend` folder. In Vercel → Project → Settings → Environment Variables, add:
-  - **`VITE_API_URL`** = your Render backend URL (e.g. `https://your-app.onrender.com`) — **no trailing slash**.
-- Without `VITE_API_URL`, the frontend calls `/api` on the Vercel domain and gets 404. With it set, API and Socket.io requests go to the Render backend and CORS is already allowed.
+  - **`VITE_API_URL`** = your Render backend URL (e.g. `https://your-app.onrender.com`) — **no trailing slash** (required for API and Socket.io).
+- Without `VITE_API_URL`, the frontend calls `/api` on the Vercel domain and gets 404. With it set, API and Socket.io connect to the Render backend. The client uses polling then WebSocket and will reconnect if the backend was sleeping (Render free tier).
 
 ---
 
