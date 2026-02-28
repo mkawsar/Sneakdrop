@@ -70,6 +70,13 @@ npm test
 
 **CI:** GitHub Actions runs both test suites on push/PR to `main` or `master` (see `.github/workflows/test.yml`). Backend tests use a PostgreSQL service container.
 
+### 5. Deployment (Vercel + Render)
+
+- **Backend (Render):** Deploy the `backend` folder, set `DATABASE_URL` and other env vars in Render. Your API will be at e.g. `https://your-app.onrender.com`.
+- **Frontend (Vercel):** Deploy the `frontend` folder. In Vercel → Project → Settings → Environment Variables, add:
+  - **`VITE_API_URL`** = your Render backend URL (e.g. `https://your-app.onrender.com`) — **no trailing slash**.
+- Without `VITE_API_URL`, the frontend calls `/api` on the Vercel domain and gets 404. With it set, API and Socket.io requests go to the Render backend and CORS is already allowed.
+
 ---
 
 ## Architecture
