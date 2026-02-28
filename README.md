@@ -8,6 +8,13 @@ Real-time high-traffic inventory system: reserve items for 60 seconds, then comp
 - **Backend:** Node.js, Express, Sequelize, PostgreSQL, Socket.io
 - **Real-time:** Socket.io (WebSockets)
 
+## Live demo
+
+- **Frontend:** [https://sneakdrop.vercel.app/](https://sneakdrop.vercel.app/)
+- **Backend API:** [https://sneakdrop.onrender.com/](https://sneakdrop.onrender.com/)
+
+> **Note:** The backend is deployed on Render’s Free plan, which implements automatic service suspension after inactivity. Initial requests may experience cold-start latency (~15–30 seconds). If the API appears unavailable, open the backend URL once to trigger service wake-up, then reload the frontend.
+
 ## Quick start
 
 ### 1. Database
@@ -178,5 +185,3 @@ sneakdrop/
 | `PORT` | Server port (default 3001) |
 | `RESERVATION_TTL_SECONDS` | Reservation lifetime (default 60) |
 | `RESERVATION_EXPIRY_JOB_INTERVAL_MS` | How often to release expired reservations (default 5000) |
-
-Do not commit `.env` or real credentials; use env vars in your host (e.g. Vercel, Neon) for production.
