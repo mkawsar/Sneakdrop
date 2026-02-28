@@ -25,7 +25,7 @@ export function UsernamePrompt() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
-      <h2 className="m-0 text-xl font-medium text-gray-800 dark:text-gray-100">
+      <h2 className="m-0 text-xl font-medium text-black-500 dark:text-black-500">
         Enter your username
       </h2>
       <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap justify-center">
