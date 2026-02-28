@@ -37,6 +37,8 @@ npm run db:seed      # Optional: sample users + drops
 npm run dev          # http://localhost:3001
 ```
 
+**Default usernames** (after `db:seed`): `alice`, `bob`, `charlie`. You can sign in with any of these or enter a new username (users are created on first use).
+
 ### 3. Frontend
 
 ```bash
@@ -46,6 +48,27 @@ npm run dev          # http://localhost:5173 (proxies /api and /socket.io to bac
 ```
 
 Open http://localhost:5173, enter a username, then reserve and purchase from the dashboard.
+
+### 4. Tests
+
+**Backend** (requires PostgreSQL; use a test DB):
+
+```bash
+cd backend
+npm install
+DATABASE_URL=postgres://user:password@localhost:5432/sneakdrop_test npm run db:migrate
+DATABASE_URL=postgres://user:password@localhost:5432/sneakdrop_test npm test
+```
+
+**Frontend:**
+
+```bash
+cd frontend
+npm install
+npm test
+```
+
+**CI:** GitHub Actions runs both test suites on push/PR to `main` or `master` (see `.github/workflows/test.yml`). Backend tests use a PostgreSQL service container.
 
 ---
 
