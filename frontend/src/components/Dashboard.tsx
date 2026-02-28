@@ -34,14 +34,34 @@ export function Dashboard() {
 
   useSocketPurchase(onPurchaseCompleted)
 
-  if (loading && drops.length === 0) return <p className="loading">Loading drops...</p>
-  if (error) return <p className="error">Error: {error}</p>
-  if (drops.length === 0) return <p className="empty">No active drops.</p>
+  if (loading && drops.length === 0) {
+    return (
+      <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+        Loading drops...
+      </p>
+    )
+  }
+  if (error) {
+    return (
+      <p className="text-center text-red-600 dark:text-red-400 py-8">
+        Error: {error}
+      </p>
+    )
+  }
+  if (drops.length === 0) {
+    return (
+      <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+        No active drops.
+      </p>
+    )
+  }
 
   return (
-    <section className="dashboard">
-      <h1>Limited Edition Drops</h1>
-      <div className="drop-grid">
+    <section>
+      <h1 className="text-2xl font-bold mb-4 text-black dark:text-black tracking-tight">
+        Limited Edition Drops
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {drops.map((drop) => (
           <DropCard key={drop.id} drop={drop} />
         ))}

@@ -51,34 +51,43 @@ export function DropCard({ drop }: DropCardProps) {
   const latest = drop.latest_purchasers ?? []
 
   return (
-    <article className="drop-card">
-      <div className="drop-card-header">
-        <h3>{drop.name}</h3>
-        <span className="price">{formatPrice(drop.price_cents)}</span>
+    <article className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm">
+      <div className="flex justify-between items-start gap-2 mb-3">
+        <h3 className="m-0 text-base font-semibold text-gray-900 dark:text-gray-100">
+          {drop.name}
+        </h3>
+        <span className="font-semibold text-blue-600 dark:text-blue-400 whitespace-nowrap">
+          {formatPrice(drop.price_cents)}
+        </span>
       </div>
-      <div className="stock-row">
-        <span className="label">Stock</span>
-        <span className="stock-count" data-drop-id={drop.id}>
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-sm text-gray-500 dark:text-gray-400">Stock</span>
+        <span
+          className="font-bold text-lg min-w-[2ch] text-gray-900 dark:text-gray-100"
+          data-drop-id={drop.id}
+        >
           {drop.available_stock}
         </span>
       </div>
-      {latest.length > 0 && (
-        <div className="latest-purchasers">
-          <span className="label">Recent purchasers:</span>
-          <ul>
+      <div className="mb-3 text-sm text-gray-600 dark:text-gray-300">
+        <span className="text-gray-500 dark:text-gray-400">Recent purchasers:</span>
+        {latest.length > 0 ? (
+          <ul className="mt-1 pl-5 list-disc">
             {latest.map((p) => (
               <li key={`${drop.id}-${p.id}`}>{p.username ?? '—'}</li>
             ))}
           </ul>
-        </div>
-      )}
-      <div className="actions">
+        ) : (
+          <p className="mt-1 m-0 text-gray-400 dark:text-gray-500">No purchases yet.</p>
+        )}
+      </div>
+      <div className="flex flex-wrap gap-2 mt-3">
         {canReserve && (
           <button
             type="button"
             onClick={handleReserve}
             disabled={reserving}
-            className="btn-reserve"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium cursor-pointer hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
           >
             {reserving ? 'Reserving...' : 'Reserve'}
           </button>
@@ -88,13 +97,15 @@ export function DropCard({ drop }: DropCardProps) {
             type="button"
             onClick={handlePurchase}
             disabled={purchasing}
-            className="btn-purchase"
+            className="px-4 py-2 bg-emerald-700 text-white rounded-md text-sm font-medium cursor-pointer hover:bg-emerald-800 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
           >
             {purchasing ? 'Processing...' : 'Complete Purchase'}
           </button>
         )}
         {!user && (
-          <p className="hint">Sign in to reserve or purchase.</p>
+          <p className="m-0 text-sm text-gray-500 dark:text-gray-400">
+            Sign in to reserve or purchase.
+          </p>
         )}
       </div>
     </article>
